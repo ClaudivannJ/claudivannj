@@ -1,0 +1,67 @@
+@media  screen and (max-width: 562px) {
+    #capa {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        z-index: 10;
+        transition: transform 0.5s ease;
+    }
+    
+    /* Estilo para esconder a capa */
+    .capa-oculta {
+        transform: translateY(-100%);
+    }
+    
+    #seta-rolagem {
+        position: absolute;
+        bottom: 20px;
+        font-size: 2rem;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    #seta-rolagem:hover {
+        transform: scale(1.1);
+    }
+    header{
+        position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    }
+
+    header nav{
+        display: none;
+    }
+
+    main{
+        background: url(./img/banner.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #sobre{
+        flex-direction: column;
+    }
+
+    #sobre .perfil-container{
+        /* display: none; */
+    }
+
+    #cta-container{
+        width: 100%;
+    }
+}

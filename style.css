@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+a, li{
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+}
+:root{
+    --color-title: rgba(0, 0, 0, 0.8000000119);
+    --color-text-menu: rgba(0, 0, 0, 0.6399999857);
+    --font-title: "docs-Roboto Serif";
+
+}
+body, html{
+    width: 100dvw;
+    height: 100dvh;
+    /* overflow-x: hidden;
+    scroll-behavior: smooth; */
+}
+
+#capa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    z-index: 10;
+    transition: transform 0.5s ease;
+}
+
+/* Estilo para esconder a capa */
+.capa-oculta {
+    transform: translateY(-100%);
+}
+
+#seta-rolagem {
+    position: absolute;
+    bottom: 20px;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#seta-rolagem:hover {
+    transform: scale(1.1);
+}
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-box{
+    align-items: center;
+    display: flex;
+    
+    
+}
+
+#logo{
+    margin-left: 8px;
+    width: 38px;
+    height: 40px;
+   max-height: 56px;
+}
+
+h1{
+    width: 174px;
+    height: 56px;
+    padding: 16px 12px;
+    font-size: 24px;
+    color: var(--color-title);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 1;
+}
+
+#themeIcon{
+    width: 25px;
+}
+
+
+.menu{
+    width: 70%;
+}
+
+ul{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: right;
+}
+li{
+    height: 40px;
+    text-align: right;
+    padding: 10px 12px;
+    
+}
+.menu-item{
+    font-size: 14.6px;
+    color: var(--color-text-menu);
+    font-family: "Open Sans", Sans-serif;
+    /* font-size: 15px; */
+    /* font-weight: light; */
+}
+
+.menu-item:hover{
+    color: black;
+    /* font-weight: bold; */
+    /* line-height: 2px; */
+} 
+.isActive{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 2px;
+    outline: none;
+}
+.isActive{
+    border-bottom: 1px solid #202036;
+}
+
+
+
+#section-capa{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.perfil-container{
+    width: 50%;
+    height: 320px;
+}
+#img-perfil{
+    width: 320px;
+}
+#titulo-animado {
+    margin-left: 20px;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-title);
+    font-weight: bold;
+    color: #434343;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #333;
+    width: fit-content;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+#cta-container{
+    width: 50%;
+    /* background-color: #333; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#cta-container p {
+    /* min-width: 120px; */
+    margin-left: 40px;
+
+    width: 70%;
+    color: #000;
+    font-size: 18px;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#cta-container button {
+    width: 260px;
+    height: 35px;
+    color: #e1dfdb;
+    background-color: #202036;
+    border-radius: 4px;
+    border-style: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation: pulse 2s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button a {
+    text-overflow: ellipsis;
+    font-family: "poppins", sans-serif;
+    color: inherit;
+    text-decoration: none;
+}
+
+main{
+    height: 100%;
+    padding: 56px 48px 0 48px;
+
+}
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
