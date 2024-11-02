@@ -1,7 +1,7 @@
 const links = document.querySelectorAll('.menu-item');
 
 links.forEach(link => {
-    link.addEventListener("click", function(){
+    link.addEventListener("click", function () {
         links.forEach(link => {
             link.classList.remove('isActive');
         });
@@ -9,54 +9,41 @@ links.forEach(link => {
     });
 });
 
-
-const titulo = document.getElementById('titulo-animado');
-const nome = "Desenvolvedor FullStack  ";
-let index = 0;
-let isDeleting = false;
-
-function typeEffect() {
-    if (!isDeleting && index <= nome.length) {   
-        titulo.textContent = nome.slice(0, index++);
-    } else if (isDeleting && index >= 0) {
-        titulo.textContent = nome.slice(0, index--);
-    }
-
-    if (index === nome.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 1000);
-    } else if (index === -1) {
-        isDeleting = false;
-        index = 0;
-        setTimeout(typeEffect, 500);
-    } else {
-        setTimeout(typeEffect, isDeleting ? 50 : 100);
-    }
-}
-
-typeEffect();
-
-
 const capa = document.getElementById("capa");
 const setaRolagem = document.getElementById("seta-rolagem");
+let isCapaVisible = true;
+let touchStartY;
+
+window.addEventListener("touchstart", (event) => {
+    touchStartY = event.touches[0].clientY;
+});
+
+window.addEventListener("touchmove", (event) => {
+    const currentY = event.touches[0].clientY;
+
+    if (touchStartY - currentY > 100 && isCapaVisible) {
+
+        capa.classList.add("capa-oculta");
+        isCapaVisible = false;
+    } else if (currentY - touchStartY > 150 && !isCapaVisible) {
+
+        capa.classList.remove("capa-oculta");
+        isCapaVisible = true;
+    }
+});
+
 
 setaRolagem.addEventListener("click", () => {
-    capa.classList.add("capa-oculta");
-});
-
-let lastScroll = 0;
-window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
-
-    if (currentScroll > lastScroll && currentScroll > 50) {
+    if (isCapaVisible) {
         capa.classList.add("capa-oculta");
-    } else if (currentScroll < lastScroll && currentScroll < 50) {
+        isCapaVisible = false;
+
+    } else {
         capa.classList.remove("capa-oculta");
+        isCapaVisible = true;
+
     }
-
-    lastScroll = currentScroll;
 });
-
 const toggleButton = document.getElementById('toggleTheme');
 const themeIcon = document.getElementById('themeIcon');
 
@@ -65,30 +52,96 @@ function applySystemThemesPreference() {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         console.log('dark')
         document.body.classList.add('dark-mode');
-        themeIcon.src = './img/sol.png';
+        themeIcon.src = './img/sol.webp';
         themeIcon.alt = 'Tema Escuro';
     } else {
         console.log('light')
         document.body.classList.remove('dark-mode');
-        themeIcon.src = './img/lua.png';
+        themeIcon.src = './img/lua.webp';
         themeIcon.alt = 'Tema Claro';
+        themeIcon.style.width = '20px';
+        themeIcon.style.height = '20px';
     }
 }
 
-// Chama a função ao carregar a página
 applySystemThemesPreference();
 
-// Adiciona um listener para mudanças na preferência do sistema
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemThemesPreference);
 
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 
     if (document.body.classList.contains('dark-mode')) {
-        themeIcon.src = './img/sol.png';
+        themeIcon.src = './img/sol.webp';
         themeIcon.alt = 'Tema Escuro';
     } else {
-        themeIcon.src = './img/lua.png';
+        themeIcon.src = './img/lua.webp';
         themeIcon.alt = 'Tema Claro';
     }
 });
+
+const menuMobile = document.querySelector('#menuIcon');
+const menu = document.querySelector('.menu');
+
+function updateMenuIcon() {
+    const isDarkMode = document.body.classList.contains('dark-mode');
+
+    if (menu.classList.contains('active')) {
+
+        menuMobile.src = './img/x.webp';
+        menuMobile.style.width = "20px"
+        menuMobile.style.height = "20px"
+
+        if (isDarkMode) {
+            menuMobile.style.filter = 'invert(100%)';
+        } else {
+            menuMobile.style.filter = 'none';
+
+        }
+    } else {
+
+        menuMobile.src = './img/menu.webp';
+        menuMobile.style.filter = 'none';
+        menuMobile.style.width = "30px"
+        menuMobile.style.height = "30px"
+    }
+}
+
+menuMobile.addEventListener('click', (event) => {
+    event.preventDefault();
+    menu.classList.toggle('active');
+    updateMenuIcon();
+});
+
+
+function createTypeEffect(element, text) {
+    let index = 0;
+    let isDeleting = false;
+
+    function type() {
+        if (!isDeleting && index <= text.length) {
+            element.textContent = text.slice(0, index++);
+        } else if (isDeleting && index >= 0) {
+            element.textContent = text.slice(0, index--);
+        }
+
+        if (index === text.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);
+        } else if (index === -1) {
+            isDeleting = false;
+            index = 0;
+            setTimeout(type, 500);
+        } else {
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+    }
+    type();
+}
+
+// Elementos e textos para aplicar o efeito de digitação
+const tituloElement = document.getElementById('titulo-animado');
+const messageElement = document.getElementById('message-animated');
+
+createTypeEffect(tituloElement, "Desenvolvedor FullStack  ");
+createTypeEffect(messageElement, "Se alguém conseguir, eu consigo! Se ninguém conseguir, serei o primeiro!  ");
