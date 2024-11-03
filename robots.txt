@@ -1,0 +1,20 @@
+# Permitir acesso a todos os robôs de busca
+User-agent: *
+Disallow: /private/         # Bloquear acesso a pasta privada
+Disallow: /temp/            # Bloquear acesso a pasta temporária
+Disallow: /cgi-bin/         # Bloquear acesso a cgi-bin
+Disallow: /admin/           # Bloquear acesso à área administrativa
+
+# Permitir acesso ao diretório específico
+Allow: /public/             # Permitir acesso ao diretório público
+
+# Bloquear acesso a arquivos específicos
+Disallow: /*.cgi            # Bloquear todos os arquivos com extensão .cgi
+Disallow: /*.pdf            # Bloquear todos os arquivos PDF
+
+# Sitemap
+Sitemap: https://www.vanntech.com.br/sitemap.xml
+
+# Diretrizes específicas para o Googlebot
+User-agent: Googlebot
+Disallow: /no-google/      # Bloquear acesso a uma área específica para Googlebot
