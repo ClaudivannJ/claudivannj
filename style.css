@@ -165,7 +165,7 @@ button a {
 
 .message {
     position: absolute;
-    bottom: 60px;
+    bottom: 30px;
     width: 80%;
     max-width: 360px;
     text-align: center;
@@ -183,6 +183,9 @@ button a {
     color: var(--color-title);
     display: inline; 
     position: relative;
+}
+body.dark-mode #message-animated{
+    color: #457ab0;
 }
 
 /* Estilo do cursor */
@@ -220,8 +223,12 @@ button a {
 
 #seta-rolagem img {
     width: 25px;
+    margin: 4px;
     rotate: -90deg;
-    filter: invert(75%) sepia(10%) saturate(300%) hue-rotate(190deg) brightness(85%) contrast(90%);
+    /* filter: invert(100%) ; */
+}
+body.dark-mode #seta-rolagem img{
+    filter: invert(100%) ;
 }
 .capa-oculta #seta-rolagem img {
     rotate: 90deg;
@@ -300,7 +307,9 @@ h1 {
     margin-left: 10px;
     z-index: 999;
 }
-
+body.dark-mode #menuIcon{
+    filter: invert(100%);
+}
 .menu {
     display: none;
     position: absolute;
@@ -366,7 +375,7 @@ body.dark-mode .isActive {
 
 main {
     height: 100%;
-    padding: 56px 48px 0 48px;
+    padding: 100px 48px 0 48px;
     backdrop-filter: blur(10px);
 }
 
