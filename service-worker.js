@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-site-cache-v1';
+const CACHE_NAME = 'vanntech-cache-v5';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -26,6 +26,7 @@ const urlsToCache = [
     '/img/react.svg',
 ];
 self.addEventListener('install', (event) => {
+    self.skipWaiting(); 
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll(urlsToCache);
@@ -37,7 +38,6 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request).then((fetchResponse) => {
-                // Verifica se a resposta é válida
                 if (!fetchResponse || fetchResponse.status !== 200 || fetchResponse.type !== 'basic') {
                     return fetchResponse;
                 }
@@ -53,18 +53,18 @@ self.addEventListener('fetch', (event) => {
         })
     );
 });
-
 self.addEventListener('activate', (event) => {
-    const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
-                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                    if (cacheName !== CACHE_NAME) {
                         return caches.delete(cacheName);
                     }
                 })
             );
+        }).then(() => {
+            return self.clients.claim();
         })
     );
 });

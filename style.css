@@ -15,6 +15,7 @@ a, li {
     --color-text-menu: rgba(0, 0, 0, 0.64);
     --font-title: "docs-Roboto Serif";
     --bg-color-dark: rgba(3, 7, 49, 0.87);
+    --color-main: rgb(1, 179, 255);
 }
 
 body, html {
@@ -23,18 +24,20 @@ body, html {
     overflow-x: hidden;
     scroll-behavior: smooth;
     /* background-color: #e8eff5;   */
-    background-color: #e8ebee73;
+    background-color: #fff;
+    /* background-color: #e8ebee73; */
 }
 
 body.dark-mode {
-    background-color: #202036;
+    background-color: #0f0f20;
+    /* background-color: #202036; */
     color: #fff;
 }
 
 body.dark-mode #capa {
-    background-color: #2929527a;
+    /* background-color: #0f0f20; */
     /* background-color: #0000002f; */
-    /* background-color: #202036; */
+    background-color: #202036;
     color: #fff;
     backdrop-filter: blur(10px); 
 }
@@ -46,8 +49,8 @@ body.dark-mode #capa {
     width: 94%;
     height: 95%;
     border-radius: 0 0 20px 20px;
-    background-color: #c3c9ce73;
-    /* background-color: #ffffff69; */
+    /* background-color: #c3c9ce73; */
+    background-color: #e8eff5;
     color: #000;
     padding: 60px 10px;
     display: flex;
@@ -59,13 +62,105 @@ body.dark-mode #capa {
 }
 
 .capa-oculta {
-    transform: translateY(-90%);
+    background-color: #e8eff567;
+    transform: translateY(calc((-100vh + 120px)));
+}
+
+body.dark-mode .capa-oculta{
+    background-color: #20203660;
 }
 
 #section-capa {
+    /* background-color: #0c78d1; */
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    height: calc(100dvh - 80px);
+    /* background-color: #a8a8ce; */
+}
+
+.perfil-container {
+    /* width: 50%; */
+    height: 280px;
+}
+
+#img-perfil {
+    width: 150px;
+    margin-left: 10px;
+}
+
+#titulo {
+    font-size: 20px;
+    /* margin-left: 20px; */
+    text-align: center;
+    font-family: var(--font-title);
+    font-weight: bold;
+    color: var(--color-title);
+    white-space: nowrap;
+}
+#fullstack{
+    color:rgb(1, 179, 255);
+}
+body.dark-mode #titulo {
+    color: #fff;
+}
+
+#cta-container {
+    /* width: 50%; */
+    /* background-color: #000; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#cta-container p {
+  margin: 20px auto;
+    /* width: 70%; */
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body.dark-mode #cta-container p {
+    color: #fff;
+}
+
+#cta-container button {
+    width: 160px;
+    height: 40px;
+    color: #ffffff;
+    background: rgb(1, 179, 255);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    animation: pulse 2s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+body.dark-mode #cta-container button{
+    color: #ffffff;
+    background: none;
+    background-color: var(--color-main);
+    animation: pulseDarkMode 2s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button a {
+    text-overflow: ellipsis;
+    font-family: "Poppins", sans-serif;
+    color: inherit;
+    font-size: 14px;
+    text-decoration: none;
 }
 
 .message {
@@ -73,14 +168,36 @@ body.dark-mode #capa {
     bottom: 60px;
     width: 80%;
     max-width: 360px;
+    text-align: center;
+    align-items: center;
     /* background-color: #8e7a13;
     border: 2px double #000; */
 }
 
-.message p {
-    text-align: center;
+.message #message-animated {
     font-size: 18px;
+    max-width: 300px;
+    text-align: center;
+    font-family: var(--font-title);
+    font-weight: 500;
+    color: var(--color-title);
+    display: inline; 
+    position: relative;
 }
+
+/* Estilo do cursor */
+.cursor {
+    display: inline; /* Mantém o cursor na linha */
+    animation: blink-caret 0.75s step-end infinite; /* Animação de piscar */
+}
+
+/* A animação do cursor */
+@keyframes blink-caret {
+    50% {
+        opacity: 0;
+    }
+}
+
 
 #seta-rolagem {
     position: absolute;
@@ -121,14 +238,16 @@ header {
     align-items: center;
     justify-content: space-between;
     /* background-color: #e8eff5b0;   */
-    background-color: #fff;
+    /* background-color: #fff; */
+background-color: #e8eff5;;
     border-radius: 0 0 10px 10px;
     /* border: 1px solid #0000002f; */
     /* box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2); */
 }
 
 body.dark-mode header {
-    background-color: #a8a8ce;
+    /* background-color: #0f0f20; */
+    background-color: #202036;
     /* box-shadow: 0 0 0.21px rgba(255, 255, 255, 0.58); */
     /* backdrop-filter: blur(10px); */
 }
@@ -150,7 +269,7 @@ h1 {
     height: 56px;
     padding: 16px 12px;
     font-size: 24px;
-    color: var(--color-title);
+    color: rgb(1, 179, 255);
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     line-height: 1;
@@ -224,14 +343,14 @@ li {
 }
 
 .menu-item:hover {
-    color: black;
+    color: var(--color-main);
 }
 body.dark-mode .menu-item {
-    color: #a8a8ce;
+    color: #ffffff;
 }
 
 .isActive {
-    color: black;
+    color: var(--color-main);
     font-size: 15px;
     font-weight: bold;
     outline: none;
@@ -242,82 +361,7 @@ body.dark-mode .isActive {
     font-size: 15px;
     font-weight: bold;
     outline: none;
-    border-bottom: 1px solid #fff;
-}
-
-
-.perfil-container {
-    width: 50%;
-    height: 320px;
-}
-
-#img-perfil {
-    width: 190px;
-    margin-left: 10px;
-}
-
-#titulo-animado {
-    max-width: 400px;
-    font-size: 20px;
-    /* margin-left: 20px; */
-    text-align: center;
-    font-family: var(--font-title);
-    font-weight: bold;
-    color: var(--color-title);
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #333;
-    width: fit-content;
-    animation: blink-caret 0.75s step-end infinite;
-}
-
-body.dark-mode #titulo-animado {
-    color: #a8a8ce;
-}
-
-#cta-container {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#cta-container p {
-    margin-left: 40px;
-    width: 70%;
-    color: #000;
-    font-size: 18px;
-    text-align: left;
-    font-weight: 500;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-body.dark-mode #cta-container p {
-    color: #fff;
-}
-
-#cta-container button {
-    width: 160px;
-    height: 35px;
-    color: #a8a8ce;
-    background-color: #202036;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    animation: pulse 2s infinite ease-in-out;
-    transition: transform 0.3s ease;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-button a {
-    text-overflow: ellipsis;
-    font-family: "Poppins", sans-serif;
-    color: inherit;
-    text-decoration: none;
+    border-bottom: 1px solid var(--color-main);
 }
 
 main {
@@ -329,11 +373,21 @@ main {
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
+        box-shadow: 0 0 5px #2020365e;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(243, 243, 243, 0.4);
+    }
+}
+@keyframes pulseDarkMode {
+    0%, 100% {
+        transform: scale(1);
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
     }
     50% {
         transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     }
 }
 
@@ -341,4 +395,43 @@ main {
     50% {
         border-color: transparent;
     }
+}
+
+#skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Ajuste conforme necessário */
+    position: relative;
+    overflow: hidden;
+}
+
+h5 {
+    position: absolute;
+    z-index: 1; /* Certifique-se de que o texto fique acima das imagens */
+    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #a8a8ce; /* Ajuste a cor do texto conforme necessário */
+}
+
+.img-skills {
+    width: 70px; /* Ajuste o tamanho das imagens */
+    height: 70px; /* Ajuste para manter a proporção circular */
+    position: absolute; /* Permite que as imagens se sobreponham */
+    border-radius: 50%;
+    border: 2px solid #0c78d1; /* Faz a borda das imagens serem circulares */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com leve transparência */
+    padding: 10px; /* Espaçamento interno para dar um efeito de círculo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+    animation: loading 10s linear infinite; }
+
+/* Adicionando classes para o delay */
+.img-skills-1 { animation-delay: 0s; }
+.img-skills-2 { animation-delay: 2s; }
+.img-skills-3 { animation-delay: 4s; }
+.img-skills-4 { animation-delay: 6s; }
+.img-skills-5 { animation-delay: 8s; }
+
+@keyframes loading {
+    0% { transform: rotate(0deg) translate(80px) rotate(0deg); }
+    100% { transform: rotate(360deg) translate(80px) rotate(-360deg); }
 }

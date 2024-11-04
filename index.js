@@ -126,16 +126,19 @@ menuMobile.addEventListener('click', (event) => {
     updateMenuIcon();
 });
 
-
 function createTypeEffect(element, text) {
     let index = 0;
     let isDeleting = false;
 
     function type() {
+        const cursor = '<span class="cursor">|</span>'; // Cursor como um elemento HTML
+
         if (!isDeleting && index <= text.length) {
-            element.textContent = text.slice(0, index++);
+            // Adiciona o cursor ao final do texto
+            element.innerHTML = text.slice(0, index++) + cursor;
         } else if (isDeleting && index >= 0) {
-            element.textContent = text.slice(0, index--);
+            // Remove o cursor durante a deleção
+            element.innerHTML = text.slice(0, index--) + cursor;
         }
 
         if (index === text.length) {
@@ -153,8 +156,5 @@ function createTypeEffect(element, text) {
 }
 
 // Elementos e textos para aplicar o efeito de digitação
-const tituloElement = document.getElementById('titulo-animado');
 const messageElement = document.getElementById('message-animated');
-
-createTypeEffect(tituloElement, "Desenvolvedor FullStack  ");
-createTypeEffect(messageElement, "Se alguém conseguir, eu consigo! Se ninguém conseguir, serei o primeiro!  ");
+createTypeEffect(messageElement, "Se alguém conseguir, eu consigo! Se ninguém conseguir, serei o primeiro! ");
