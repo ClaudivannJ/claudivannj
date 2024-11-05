@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vanntech-cache-v8';
+const CACHE_NAME = 'vanntech-cache-v14';
 const urlsToCache = [
     '/',
     '/index.html',

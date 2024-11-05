@@ -25,6 +25,7 @@
 
 <body>
     <div id="capa">
+        
         <section id="section-capa">
             <div class="perfil-container">
                 <img id="img-perfil" src="./img/perfil1.webp" alt="imagem de perfil">
@@ -64,21 +65,25 @@
             </button>
             <div class="mobile-menu-icon">
                 <img src="./img/menu.webp" alt="Menu" id="menuIcon">
+                <!-- <img src="./img/x.webp" alt="x" id="x-icon"> -->
             </div>
         </div>
     </header>
     <main>
         <section id="about">
             <h2>Sobre Mim</h2>
+            
             <p>
                 Sou um desenvolvedor fullstack, Atualmente trabalho com as linguagens Node e Express para criação de
-                API's e React com ou sem TypeScript para desenvolvimentoweb.
+                API's e React com ou sem TypeScript para desenvolvimento web.
             </p>
+            <button class="button-socialMedia">Visitar LinkedIn -></button>
         </section>
-        <button>Visitar LinkedIn -></button>
+        
         <section id="services">
-            <div class="services">
-                <h2>serviços</h2>
+            
+            <div class="services-container">
+                <h2>Serviços</h2>
                 <p>
                     Se você precisa de alguém para desenvolver um aplicativo, site pessoal, comercial ou até mesmo uma
                     simples landing page você está no lugar certo!
@@ -87,11 +92,35 @@
                     Realizo as entregas dos projetos através do Github em um repositório privado ou público, com o
                     intuito de manter o código sempre versionado, facilitando o processo de controle de histórico.
                 </p>
+                <button class="button-socialMedia">Ver GitHub -></button>
+            </div>
+            
+
+            <div class="development service">
+                <img class="img-services-icon" src="./img/code.svg" alt="Icone de código">
+                <h3>Development</h3>
+                <p>Desenvolvimento de projetos end-to-end, criando API's no padrão REST e criando websites dinâmicos ou estáticos.</p>
             </div>
 
+            <div class="mobile-frindely service">
+                <img class="img-services-icon" src="./img/responsive.svg" alt="Icone de Responsividade">
+                <h3>Mobile-frindely</h3>
+                <p>Design responsivo tornando seu site acessível, independentemente do dispositivo. Criando telas a partir do conceito Mobile First.</p>
+            </div>
+
+            <div class="analytics service">
+                <img class="img-services-icon" src="./img/search.svg" alt="Icone de lupa">
+                <h3>Analytics</h3>
+                <p>Obtenha informações sobre quem está navegando em seu site, para que você possa tomar decisões de negócios mais inteligentes.</p>
+            </div>
+            <div class="clean-code service">
+                <img class="img-services-icon" src="./img/mouse.svg" alt="Icone de mouse">
+                <h3>Clean Code</h3>
+                <p>Desenvolvimento seguindo os principais design patterns, com objetivo de tornar o código mais intuitivo, elegante e com fácil manutenção.</p>
+            </div>
         </section>
         <section id="skills">
-            <h5>Skills</h5>
+            <h2>Skills</h2>
             <img class="img-skills img-skills-1" src="./img/github.svg" alt="GitHub">
             <img class="img-skills img-skills-2" src="./img/javascript.svg" alt="JavaScript">
             <img class="img-skills img-skills-3" src="./img/react.svg" alt="React">
@@ -100,7 +129,8 @@
         </section>
         
         
-        <section id="contato">
+        <section id="contact">
+            <h2>Contato</h2>
             <div class="socialMedia">
                 <p>Ente em contato para dúvidas, sugestões, orçamentos ou suporte.</p>
                 <div class="socialMediaContainer">
@@ -197,8 +227,12 @@
                     </svg>
                 </div>
             </div>
-        </section>
+        </section> 
+          <footer>
+        <a href="http://www.vanntech.com.br">&COPY;Vanntech </a>- Todos os direitos reservados
+    </footer>
     </main>
+ 
     <script src="index.js"></script>
 </body>
 

@@ -34,11 +34,11 @@ window.addEventListener("touchstart", (event) => {
 window.addEventListener("touchmove", (event) => {
     const currentY = event.touches[0].clientY;
 
-    if (touchStartY - currentY > 100 && isCapaVisible) {
+    if (touchStartY - currentY > 600 && isCapaVisible) {
 
         capa.classList.add("capa-oculta");
         isCapaVisible = false;
-    } else if (currentY - touchStartY > 150 && !isCapaVisible) {
+    } else if (currentY - touchStartY > 600 && !isCapaVisible) {
 
         capa.classList.remove("capa-oculta");
         isCapaVisible = true;
