@@ -20,6 +20,7 @@ a, li {
     --color-message-blue: #457ab0;
     --font-title: "docs-Roboto Serif";
     --bg-color-dark: rgba(3, 7, 49, 0.87);
+    --color-main-darkMode:#0f0f20;
     --color-main: rgb(1, 179, 255);
     --linear-color: linear-gradient(79.63deg, rgb(22, 22, 22) 12.08%, rgb(30, 58, 138) 216.5%);
     --linear-bg: linear-gradient(267.93deg, rgb(1, 179, 255) -42.09%, rgb(23, 25, 31) 108.97%);
@@ -37,7 +38,7 @@ body, html {
 }
 
 body.dark-mode {
-    background-color: #0f0f20;
+    background-color: var(--color-main-darkMode);
     /* background-color: #202036; */
     color: #fff;
 }
@@ -76,10 +77,6 @@ body.dark-mode #capa {
 body.dark-mode .capa-oculta{
     background-color: #202036b6 !important;
     backdrop-filter: blur(10px); 
-}
-
-.capa-oculta #seta-rolagem, body.dark-mode .capa-oculta #seta-rolagem {
-    width: 90% !important;
 }
 
 #section-capa {
@@ -163,9 +160,6 @@ body.dark-mode #cta-container button{
     transition: transform 0.3s ease;
 }
 
-button:hover {
-    transform: scale(1.1);
-}
 
 button a {
     text-overflow: ellipsis;
@@ -203,13 +197,12 @@ body.dark-mode #message-animated{
 
 #seta-rolagem {
     /* position: absolute; */
-    width: 90% !important;
+    width: 100% !important;
     /* bottom: 0px; */
-    /* font-size: 1.5rem; */
-    color: #a8a8ce;
     background: none;
     display: flex;
-    align-items: center;text-align: center;
+    align-items: center;
+    text-align: center;
     justify-content: center;
     border: none;
     cursor: pointer;
@@ -217,14 +210,11 @@ body.dark-mode #message-animated{
     border-top: 1px solid var(--colo-gray);
 }
 
-#seta-rolagem:hover {
-    transform: scale(1.1);
-}
-
 #seta-rolagem img {
     width: 25px;
     margin: 4px;
     rotate: -90deg;
+    filter: invert(50%) ;
 }
 body.dark-mode #seta-rolagem img{
     filter: invert(70%) ;
@@ -237,7 +227,7 @@ header {
     position: fixed;
     top: 0;
     width: 94%;
-    margin-left: 3%;
+    margin: 0 3%;
     height: 56px;
     z-index: 99;
     display: flex;
@@ -247,7 +237,7 @@ header {
     /* background-color: #e8eff5b0;   */
     /* background-color: #fff; */
 background-color: #e8eff5;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 4px 4px;
     /* border: 1px solid #0000002f; */
     /* box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2); */
 }
@@ -381,7 +371,7 @@ body.dark-mode .isActive {
 
 main {
     height: 100%;
-    padding: 100px 0 0px 20px;
+    padding: 100px 10px 0px 20px;
     backdrop-filter: blur(10px);
 }
 #services h3, #services p{
@@ -421,7 +411,13 @@ color: var(--color-white);
     /* font-weight: 600; */
     margin: 30px 0;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
+.button-socialMedia:hover{
+scale: 1.1;
+}
+
 body.dark-mode .button-socialMedia{
     background: none;
     border: none;
@@ -429,11 +425,98 @@ body.dark-mode .button-socialMedia{
 
 }
 
+form label {
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s ease all;
+    background-color: #fff;
+    padding: 0 4px;
+    pointer-events: none;
+    color: var(--color-text);
+    font-size: 14px;
+}
+body.dark-mode form label{
+    background-color: var(--color-main-darkMode);
+}
+
+form .box-input, form #btn-submit {
+    
+    width: 80%;
+    height: 35px;
+    margin: 0;
+    margin: 20px 0;
+    border-radius: 8px;   
+}
+
+.box-input:has(textarea){
+    width: 80%;
+    height: 90px;
+}
+
+.box-input{
+   position: relative; 
+}
+
+form button{
+    outline: none;
+    border: none;
+    background-color: var(--color-main);
+    color: var(--color-white);
+    cursor: pointer;
+}
+form button:hover{
+    background-color: #1998ff;
+}
+body.dark-mode form .box-input{
+    background-color: var(--color-main-darkMode);
+}
+.box-input input, .box-input textarea{
+    width: 100%;
+    height: 100%;
+    padding: 0 8px;
+    padding-top: 10px;
+    outline: none;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    border: 1px solid var(--color-main);
+    
+}
+
+body.dark-mode .box-input input, body.dark-mode .box-input textarea{
+    background-color: var(--color-main-darkMode);
+    color: var(--color-white);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #fff !important; /* Fundo azul */
+    box-shadow: 0 0 0 30px #fff inset !important; /* Fundo azul */
+    -webkit-text-fill-color:  var(--color-white) !important; /* Texto branco */
+    caret-color: var(--colo-gray) !important; /* Texto branco */
+}
+
+
+form input:focus + label,
+form input:not(:placeholder-shown) + label,
+form textarea:focus + label,
+form textarea:not(:placeholder-shown) + label {
+    top: 2px;
+    left: 10px;
+    font-size: 12px;
+    color: var(--color-main);
+}
+
 footer{
+    display:flex;
     text-align: center;
-    bottom: 0;
     width: 100%;
     height: 60px;
+    align-items: center;
+    justify-content: center;
 }
 @keyframes pulse {
     0%, 100% {
@@ -456,40 +539,35 @@ footer{
     }
 }
 
-@keyframes blink-caret {
-    50% {
-        border-color: transparent;
-    }
-}
 
 #skills {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px; /* Ajuste conforme necessário */
+    height: 200px; 
     position: relative;
     overflow: hidden;
 }
 
 h5 {
     position: absolute;
-    z-index: 1; /* Certifique-se de que o texto fique acima das imagens */
-    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
-    color: #a8a8ce; /* Ajuste a cor do texto conforme necessário */
+    z-index: 1; 
+    font-size: 24px;
+    color: #a8a8ce;
 }
 
 .img-skills {
-    width: 70px; /* Ajuste o tamanho das imagens */
-    height: 70px; /* Ajuste para manter a proporção circular */
-    position: absolute; /* Permite que as imagens se sobreponham */
+    width: 70px; 
+    height: 70px; 
+    position: absolute; 
     border-radius: 50%;
-    border: 2px solid #0c78d1; /* Faz a borda das imagens serem circulares */
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com leve transparência */
-    padding: 10px; /* Espaçamento interno para dar um efeito de círculo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+    border: 2px solid #0c78d1; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     animation: loading 10s linear infinite; }
 
-/* Adicionando classes para o delay */
+
 .img-skills-1 { animation-delay: 0s; }
 .img-skills-2 { animation-delay: 2s; }
 .img-skills-3 { animation-delay: 4s; }

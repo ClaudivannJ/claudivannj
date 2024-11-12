@@ -1,14 +1,14 @@
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-            .then((registration) => {
-                console.log('ServiceWorker registered: ', registration);
-            })
-            .catch((error) => {
-                console.error('ServiceWorker registration failed: ', error);
-            });
-    });
-}
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', () => {
+//         navigator.serviceWorker.register('./service-worker.js')
+//             .then((registration) => {
+//                 console.log('ServiceWorker registered: ', registration);
+//             })
+//             .catch((error) => {
+//                 console.error('ServiceWorker registration failed: ', error);
+//             });
+//     });
+// }
 
 
 const links = document.querySelectorAll('.menu-item');
@@ -34,11 +34,11 @@ window.addEventListener("touchstart", (event) => {
 window.addEventListener("touchmove", (event) => {
     const currentY = event.touches[0].clientY;
 
-    if (touchStartY - currentY > 600 && isCapaVisible) {
+    if (touchStartY - currentY > 100 && isCapaVisible) {
 
         capa.classList.add("capa-oculta");
         isCapaVisible = false;
-    } else if (currentY - touchStartY > 600 && !isCapaVisible) {
+    } else if (currentY - touchStartY > 500 && !isCapaVisible) {
 
         capa.classList.remove("capa-oculta");
         isCapaVisible = true;
