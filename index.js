@@ -1,15 +1,20 @@
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', () => {
+//         navigator.serviceWorker.register('./service-worker.js')
+//             .then((registration) => {
+//                 console.log('ServiceWorker registered: ', registration);
+//             })
+//             .catch((error) => {
+//                 console.error('ServiceWorker registration failed: ', error);
+//             });
+//     });
+// }
+
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-            .then((registration) => {
-                console.log('ServiceWorker registered: ', registration);
-            })
-            .catch((error) => {
-                console.error('ServiceWorker registration failed: ', error);
-            });
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(registration => registration.unregister());
     });
 }
-
 
 const links = document.querySelectorAll('.menu-item');
 
