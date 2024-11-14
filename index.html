@@ -82,7 +82,7 @@
 
         <section id="services">
 
-            <div class="services-container">
+            <div class="services-container ">
                 <h2>Serviços</h2>
                 <p>
                     Se você precisa de alguém para desenvolver um aplicativo, site pessoal, comercial ou até mesmo uma
@@ -232,7 +232,7 @@
                 </div>
             </div>
 
-            <form action="#" method="post">
+            <form>
                 <div class="box-input">
                     <input type="text" id="nome" name="nome" placeholder="" required>
                     <label for="name">Seu Nome:</label>
@@ -247,7 +247,7 @@
                 </div>
                 
 
-                <button id="btn-submit" type="submit">Enviar</button>
+                <button id="btn-submit" type="button" onclick="handleFormSubmission()" >Enviar</button>
 
             </form>
         </section>
@@ -257,6 +257,7 @@
     </main>
 
     <script src="index.js"></script>
+    <script src="form.js"></script>
 </body>
 
 </html>
