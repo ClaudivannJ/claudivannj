@@ -161,5 +161,8 @@ function createTypeEffect(element, text) {
 }
 
 // Elementos e textos para aplicar o efeito de digitação
+const tittleAnimated = document.getElementById('tittle-animated');
+createTypeEffect(tittleAnimated, "Desenvolvedor FullStack ")
+
 const messageElement = document.getElementById('message-animated');
 createTypeEffect(messageElement, "Se alguém conseguir, eu consigo! Se ninguém conseguir, serei o primeiro! ");

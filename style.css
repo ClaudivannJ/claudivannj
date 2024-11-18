@@ -9,9 +9,6 @@ a, li {
     text-decoration: none;
     color: inherit;
 }
-h2{
-    margin-bottom: 16px;
-}
 
 :root {
     --color-title: rgba(0, 0, 0, 0.8);
@@ -218,7 +215,7 @@ body.dark-mode #message-animated{
     width: 25px;
     margin: 4px;
     rotate: -90deg;
-    filter: invert(50%) ;
+    filter: invert(70%) ;
 }
 body.dark-mode #seta-rolagem img{
     filter: invert(70%) ;
@@ -265,15 +262,19 @@ body.dark-mode header {
     max-height: 56px;
 }
 
-h1 {
+#logo h1 {
     width: 174px;
     height: 56px;
     padding: 16px 12px;
     font-size: 24px;
-    color: rgb(1, 179, 255);
-    font-family: "Montserrat", sans-serif;
+    color: var(--color-title);
+    font-family: "Sen", sans-serif;
     font-weight: 700;
     line-height: 1;
+}
+
+body.dark-mode h1{
+    color: var(--color-main);
 }
 
 #toggleTheme {
@@ -378,9 +379,29 @@ main {
     padding: 100px 10px 0px 10px;
     backdrop-filter: blur(10px);
 }
+
 section{
     width: 90%;
     margin:0 5%
+}
+#about p:first-child{
+    color: var(--color-text);
+    font-size: 20px;
+    margin-top: 35px;
+    
+}
+#about #myName{
+    color: var(--color-main);
+    margin: 10px 0;
+
+    font-size: 34px;
+    
+}
+#about #tittle-animated{
+    
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 #services h3, #services p{
     font-size: 16px;
@@ -404,6 +425,14 @@ h2{
     font-size: 1.4rem;
     
 }
+.borda{
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin: 8px 0 16px ;
+    border-radius: 4px;
+    background-color: var(--color-main);
+}
 
 body.dark-mode h2{
 color: var(--color-white);
@@ -416,8 +445,8 @@ color: var(--color-white);
     padding: 6px;
     color: #fff;
     background-color: var(--color-main);
-    font-family: Sen;
-    font-size: 16px;
+    font-family: Poppins;
+    font-size: 14px;
     /* font-weight: 600; */
     margin: 30px 0;
     border: none;
@@ -445,8 +474,7 @@ form label {
     left: 4px;
     top: 50%;
     transform: translateY(-50%);
-    transition: 0.2s ease all;
-    transition: color 0.2s, background-color 0.2s;
+    transition: none;
     background-color: #fff;
     padding: 0 4px;
     pointer-events: none;

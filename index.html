@@ -15,9 +15,11 @@
     <meta property="og:url" content="https://www.vanntech.com.br">
     <meta property="og:type" content="website">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/logo1.ico" type="image/x-icon">
     <title>VannTech</title>
@@ -54,7 +56,7 @@
         <nav class="menu">
             <ul>
                 <li><a class="menu-item isActive" href="#logo">Início</a></li>
-                <li><a class="menu-item" href="#contact">Contato</a></li>
+                <li><a class="menu-item" href="#nome">Contato</a></li>
                 <li><a class="menu-item" href="#projects">Projetos</a></li>
                 <li><a class="menu-item" href="#about">Sobre</a></li>
             </ul>
@@ -71,19 +73,23 @@
     </header>
     <main>
         <section id="about">
+            <p>Olá, eu sou</p>
+            <h1 id="myName">ClaudivannJ Araújo. </h1>
+            <h4 id="tittle-animated"></h4>
             <h2>Sobre Mim</h2>
-
+            <span class="borda"></span>
             <p>
                 Sou um desenvolvedor fullstack, Atualmente trabalho com as linguagens Node e Express para criação de
                 API's e React com ou sem TypeScript para desenvolvimento web.
             </p>
-            <button class="button-socialMedia">Visitar LinkedIn -></button>
+            <button class="button-socialMedia">Visitar LinkedIn</button>
         </section>
 
         <section id="services">
 
             <div class="services-container ">
                 <h2>Serviços</h2>
+                <span class="borda"></span>
                 <p>
                     Se você precisa de alguém para desenvolver um aplicativo, site pessoal, comercial ou até mesmo uma
                     simples landing page você está no lugar certo!
@@ -92,7 +98,7 @@
                     Realizo as entregas dos projetos através do Github em um repositório privado ou público, com o
                     intuito de manter o código sempre versionado, facilitando o processo de controle de histórico.
                 </p>
-                <button class="button-socialMedia">Ver GitHub -></button>
+                <button class="button-socialMedia">Ver GitHub</button>
             </div>
 
 
@@ -103,7 +109,7 @@
                     estáticos.</p>
             </div>
 
-            <div class="mobile-frindely service">
+            <div class="mobile-friendly service">
                 <img class="img-services-icon" src="./img/responsive.svg" alt="Icone de Responsividade">
                 <h3>Mobile-frindely</h3>
                 <p>Design responsivo tornando seu site acessível, independentemente do dispositivo. Criando telas a
@@ -238,16 +244,16 @@
                     <label for="name">Seu Nome:</label>
                 </div>
                 <div class="box-input">
-                    <input type="email" name="email" id="email" placeholder="" required >
+                    <input type="email" name="email" id="email" placeholder="" required>
                     <label for="email">Seu Email:</label>
                 </div>
                 <div class="box-input">
-                    <textarea name="mensagem" id="mensagem"  required></textarea>
+                    <textarea name="mensagem" id="mensagem" required></textarea>
                     <label for="mensagem">Sua Mensagem:</label>
                 </div>
-                
 
-                <button id="btn-submit" type="button" onclick="handleFormSubmission()" >Enviar</button>
+
+                <button id="btn-submit" type="button" onclick="handleFormSubmission()">Enviar</button>
 
             </form>
         </section>
